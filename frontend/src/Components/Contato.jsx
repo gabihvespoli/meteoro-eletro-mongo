@@ -48,6 +48,17 @@ function Contato() {
     setMensagem("");
   }
 
+  const formatDate = (rawDate) => {
+    const dateBr = new Date(rawDate);
+    const d = dateBr.getDate();
+    const mo = dateBr.getMonth();
+    const y = dateBr.getFullYear();
+    const h = dateBr.getHours();
+    const mi = dateBr.getMinutes();
+
+    return `${d}/${mo}/${y} as ${h}:${mi}`;
+  };
+
   return (
     <>
       <div className="jumbotron jumbotron-fluid">
@@ -140,7 +151,8 @@ function Contato() {
                   <div className="card-body lead">{element.msg}</div>
                   <div className="card-footer border-0">
                     <small className="text-info">
-                      Enviado em {element.data}
+                      {/* Enviado em {element.data} */}
+                      Enviado em {formatDate(element.data)}
                     </small>
                   </div>
                 </div>
